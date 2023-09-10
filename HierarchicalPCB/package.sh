@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 set -e
+setopt CSH_NULL_GLOB
+
 
 echo "Generates a package for the KiCAD Repository"
 
@@ -11,7 +13,7 @@ echo "UNPACKED_BYTES: $UNPACKED_BYTES"
 
 # Pack it into a zip file
 rm package.zip || true
-zip -r package.zip metadata.json plugins/ resources/
+zip -r package.zip metadata.json plugins/ resources/ -x "plugins/.git/**" -x plugins/.gitignore -x plugins/README.md -x "plugins/images/**" -x "**/*.fbp"
 
 # Get the current tag, if one exists.
 CURRTAG="$(cd plugins; git describe --tags)"
