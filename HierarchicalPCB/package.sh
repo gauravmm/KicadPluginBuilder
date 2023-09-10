@@ -55,4 +55,4 @@ JSONSTR="{
     \"download_url\": \"https://github.com/gauravmm/HierarchicalPcb/releases/download/$CURRTAG/package.zip\",
     \"install_size\": $UNPACKED_BYTES
 }"
-python3 ../tools/update_metadata.py "$JSONSTR"
+python3 ../tools/update_repo_metadata.py "$JSONSTR"

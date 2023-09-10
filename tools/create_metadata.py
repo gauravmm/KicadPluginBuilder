@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import sys
 
-filename = Path("metadata.json")
+filename = Path("repo-metadata.json")
 # Provide the new version as a json string
 merge = json.loads(sys.argv[1])
 
