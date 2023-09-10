@@ -26,10 +26,10 @@
             "version": "1.0.0",
             "status": "stable",
             "kicad_version": "7.0",
-            "download_sha256": "ae08615e10e61e570b41e20fce95bbe8bd926c9978f6f92079a9785dee450e0e",
-            "download_size": 18898,
+            "download_sha256": "a7bdef7a61607eee85b0f04a8421592b0647454c0a5cf6a539dc9b64151a782b",
+            "download_size": 18899,
             "download_url": "https://github.com/gauravmm/HierarchicalPcb/releases/download/1.0.0/package.zip",
-            "install_size": 48595
+            "install_size": 59347
         }
     ]
 }
