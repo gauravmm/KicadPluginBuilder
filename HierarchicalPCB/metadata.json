@@ -21,5 +21,15 @@
     "resources": {
         "homepage": "https://github.com/gauravmm/HierarchicalPcb"
     },
-    "versions": []
+    "versions": [
+        {
+            "version": "1.0.0",
+            "status": "stable",
+            "kicad_version": "7.0",
+            "download_sha256": "7c83d94e36c72406e5fbce65e6235905ebdc8fec83fe49f8654af46294947768",
+            "download_size": 24158,
+            "download_url": "https://github.com/gauravmm/HierarchicalPcb/releases/download/1.0.0/package.zip",
+            "install_size": 53853
+        }
+    ]
 }
