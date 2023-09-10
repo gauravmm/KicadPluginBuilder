@@ -1,0 +1,25 @@
+{
+    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "name": "HierarchicalPCB",
+    "description": "Enforce sub-PCB layouts for sub-schematics",
+    "description_full": "Define a sub-PCB next to your sub-schematic file, and HierarchicalPCB will propagate that layout to the final PCB. Organize your PCB layouts for maximum reusability!",
+    "identifier": "com.github.gauravmm.hierarchicalpcb",
+    "type": "plugin",
+    "author": {
+        "name": "Gaurav Manek",
+        "contact": {
+            "email": "gaurav@gauravmanek.com"
+        }
+    },
+    "maintainer": {
+        "name": "Gaurav Manek",
+        "contact": {
+            "email": "gaurav@gauravmanek.com"
+        }
+    },
+    "license": "MIT",
+    "resources": {
+        "homepage": "https://github.com/gauravmm/HierarchicalPcb"
+    },
+    "versions": []
+}
