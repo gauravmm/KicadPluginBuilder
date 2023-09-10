@@ -21,7 +21,7 @@ CURRTAG="$(cd plugins_src; git describe --tags)"
 if [[ ! -f resources/icon.png ]]; then
     echo "Generating icon."
     mkdir resources || true
-    convert plugins_src/images/icon-orig.png -resize 24x24 resources/icon.png 
+    convert plugins_src/images/icon-orig.png -resize 64x64 resources/icon.png 
 fi
 
 echo "Copying files to package dir."
