@@ -17,6 +17,13 @@ fi
 # Get the current tag, if one exists.
 CURRTAG="$(cd plugins_src; git describe --tags)"
 
+# Generate icon if not exists
+if [[ ! -f resources/icon.png ]]; then
+    echo "Generating icon."
+    mkdir resources || true
+    convert plugins_src/keyboard.png -resize 24x24 resources/icon.png 
+fi
+
 echo "Copying files to package dir."
 if [[ -d plugins ]]; then
     rm -rf plugins
@@ -26,7 +33,7 @@ rsync -av \
     --exclude .git \
     --exclude .gitignore \
     --exclude README.md \
-    --exclude images \
+    --exclude 'keyboard.png' \
     --exclude '**/*.fbp' \
     --exclude '**/__pycache__' \
     plugins_src/ plugins
