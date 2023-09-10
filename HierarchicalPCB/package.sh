@@ -16,6 +16,7 @@ fi
 )
 # Get the current tag, if one exists.
 CURRTAG="$(cd plugins_src; git describe --tags)"
+CURRTIMESTAMP="$(cd plugins_src; git log -1 --format=%ct | date +'%Y%m%d%H%M.%S')"
 
 # Generate icon if not exists
 if [[ ! -f resources/icon.png ]]; then
@@ -38,15 +39,23 @@ rsync -av \
     --exclude '**/__pycache__' \
     plugins_src/ plugins
 
+# Generate metadata.json
+jq ".versions=[{
+    \"version\": \"$CURRTAG\",
+    \"status\": \"stable\",
+    \"kicad_version\": \"7.0\"
+}]" < repo-metadata.json > metadata.json
+touch -t $CURRTIMESTAMP metadata.json
+
+# Get the size of the unpacked files
 UNPACKED_BYTES=$(du -bd 0 metadata.json plugins/ resources/ | cut -f 1 | tr "\n" "+" | sed "s/+$/\n/" | bc)
-echo "UNPACKED_BYTES: $UNPACKED_BYTES"
 
 # Pack it into a zip file
 rm package.zip || true
-zip -r package.zip metadata.json plugins/ resources/
+zip -Xr package.zip metadata.json plugins/ resources/
 
-# Add or update the JSON entry:
-JSONSTR="{
+# Add or update the JSON entry in the repo metadata:
+python3 ../tools/update_repo_metadata.py "{
     \"version\": \"$CURRTAG\",
     \"status\": \"stable\",
     \"kicad_version\": \"7.0\",
@@ -55,4 +64,3 @@ JSONSTR="{
     \"download_url\": \"https://github.com/gauravmm/HierarchicalPcb/releases/download/$CURRTAG/package.zip\",
     \"install_size\": $UNPACKED_BYTES
 }"
-python3 ../tools/update_repo_metadata.py "$JSONSTR"

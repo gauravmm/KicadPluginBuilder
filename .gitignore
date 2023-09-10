@@ -2,6 +2,7 @@
 plugins/
 plugins_src/
 package.zip
+metadata.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
