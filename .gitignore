@@ -1,4 +1,4 @@
-resources/icon.png
+**/resources/icon.png
 plugins/
 plugins_src/
 package.zip
