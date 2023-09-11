@@ -47,9 +47,6 @@ jq ".versions=[{
 }]" < repo-metadata.json > metadata.json
 touch -t $CURRTIMESTAMP metadata.json
 
-# Get the size of the unpacked files
-UNPACKED_BYTES=$(find metadata.json plugins/ resources/ -type f -exec stat -t {} \; | cut -d\  -f 2 | tr "\n" "+" | sed "s/+$/\n/" | bc)
-
 # Pack it into a zip file
 rm package.zip || true
 ../tools/deterministic-zip_linux-amd64 -r package.zip metadata.json plugins/ resources/
@@ -62,5 +59,5 @@ python3 ../tools/update_repo_metadata.py "{
     \"download_sha256\": \"$(sha256sum package.zip | cut -d ' ' -f 1)\",
     \"download_size\": $(du -b package.zip | cut -f 1),
     \"download_url\": \"https://github.com/gauravmm/HierarchicalPcb/releases/download/$CURRTAG/package.zip\",
-    \"install_size\": $UNPACKED_BYTES
+    \"install_size\": $(python3 ../tools/installedsize.py package.zip)
 }"
