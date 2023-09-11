@@ -51,7 +51,7 @@ UNPACKED_BYTES=$(find metadata.json plugins/ resources/ -type f -exec stat -t {}
 
 # Pack it into a zip file
 rm package.zip || true
-zip -Xr package.zip metadata.json plugins/ # resources/
+../tools/deterministic-zip_linux-amd64 -r package.zip metadata.json plugins/ # resources/
 
 # Add or update the JSON entry:
 python3 ../tools/update_repo_metadata.py "{
