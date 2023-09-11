@@ -34,13 +34,13 @@
             "install_size": 27976
         },
         {
-            "version": "1.0.0-1-g8c1eb78",
+            "version": "1.0.1",
             "status": "stable",
             "kicad_version": "7.0",
-            "download_sha256": "f8196123ed42a52098f480fa019826872b7c748685706e13475f0b8e9f1b44fb",
-            "download_size": 10025,
-            "download_url": "https://github.com/gauravmm/KLEPlacement/releases/download/1.0.0-1-g8c1eb78/package.zip",
-            "install_size": 35317
+            "download_sha256": "5f6db2e3ba710d7875deeaceaa35fda0514c746010080ecb73ce0f75d9cba577",
+            "download_size": 9146,
+            "download_url": "https://github.com/gauravmm/KLEPlacement/releases/download/1.0.1/package.zip",
+            "install_size": 34514
         }
     ]
 }
