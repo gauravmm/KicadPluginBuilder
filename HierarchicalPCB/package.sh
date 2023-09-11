@@ -48,7 +48,7 @@ jq ".versions=[{
 touch -t $CURRTIMESTAMP metadata.json
 
 # Get the size of the unpacked files
-UNPACKED_BYTES=$(du -bd 0 metadata.json plugins/ resources/ | cut -f 1 | tr "\n" "+" | sed "s/+$/\n/" | bc)
+UNPACKED_BYTES=$(find metadata.json plugins/ resources/ -type f -exec stat -t {} \; | cut -d\  -f 2 | tr "\n" "+" | sed "s/+$/\n/" | bc)
 
 # Pack it into a zip file
 rm package.zip || true
