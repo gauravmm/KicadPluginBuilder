@@ -43,7 +43,7 @@ rsync -av \
 jq ".versions=[{
     \"version\": \"$CURRTAG\",
     \"status\": \"stable\",
-    \"kicad_version\": \"7.0\"
+    \"kicad_version\": \"8.0\"
 }]" < repo-metadata.json > metadata.json
 touch -t $CURRTIMESTAMP metadata.json
 
@@ -55,7 +55,7 @@ rm package.zip || true
 python3 ../tools/update_repo_metadata.py "{
     \"version\": \"$CURRTAG\",
     \"status\": \"stable\",
-    \"kicad_version\": \"7.0\",
+    \"kicad_version\": \"8.0\",
     \"download_sha256\": \"$(sha256sum package.zip | cut -d ' ' -f 1)\",
     \"download_size\": $(du -b package.zip | cut -f 1),
     \"download_url\": \"https://github.com/gauravmm/HierarchicalPcb/releases/download/$CURRTAG/package.zip\",
